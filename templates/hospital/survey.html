@@ -1,0 +1,84 @@
+{% extends 'hospital/patient_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+
+
+<div class="container">
+    <label for="a">Family Status</label>
+    <select name="cars" id="cars">
+        <option value="volvo">Married</option>
+        <option value="saab">unmarried</option>
+      </select>
+      <br>
+      <label for="b">No of times postive</label>
+      <select name="cars" id="cars">
+          <option value="volvo">0</option>
+          <option value="saab">1</option>
+          <option value="saab">2</option>
+          <option value="saab">3</option>
+          <option value="saab">4</option>
+          <option value="saab">more than 5</option>
+        </select>
+        <br>
+        <label for="b">No of times hospitalized</label>
+        <select name="cars" id="cars">
+            <option value="volvo">0</option>
+            <option value="saab">1</option>
+            <option value="saab">2</option>
+            <option value="saab">3</option>
+            <option value="saab">4</option>
+            <option value="saab">5</option>
+            <option value="volvo">6</option>
+            <option value="saab">7</option>
+            <option value="saab">8</option>
+            <option value="saab">9</option>
+            <option value="saab">10</option>   
+          </select>
+          
+      
+
+    <form  action="/patient-form" method="POST">
+        {% csrf_token %}
+        <h3> please type yes or no</h3>
+      <input class="form-control mr-sm-2" type="text" placeholder="self_employed" name="self_employed">
+      <input class="form-control mr-sm-2" type="text" placeholder="lost_job" name="lost_job">
+      <input class="form-control mr-sm-2" type="text" placeholder="health_issues" name="health_issues">
+      <input class="form-control mr-sm-2" type="text" placeholder="physical_health" name="physical_health">
+      <input class="form-control mr-sm-2" type="text" placeholder="friends" name="friends">
+      <input class="form-control mr-sm-2" type="text" placeholder="relatives" name="relatives">
+      <input class="form-control mr-sm-2" type="text" placeholder="salary_cuts" name="salary_cuts">
+      <input class="form-control mr-sm-2" type="text" placeholder="exercise" name="exercise">
+      <input class="form-control mr-sm-2" type="text" placeholder="missed_daily_routines" name="missed_daily_routines">
+      
+
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+ 
+       
+        <h1>{{hap}}</h1>
+</div>
+
+
+{% endblock content %}
