@@ -279,7 +279,7 @@
       <img src="{% static patient.profile_pic.url %}" alt="Profile Pic" />
       <br><br>
       <h3 style="color:rgb(63, 7, 165);">Patient</h3>
-      <h1 style="color:blue;"> {{h}}</h1>
+      <h1 style="color:blue;"> {{request.user.first_name}}</h1>
     </header>
     <ul>
       <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="/patient-dashboard"><span>Dashboard</span></a> </li>
