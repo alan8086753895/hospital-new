@@ -47,6 +47,7 @@ def payment_status(request):
 
     # client instance
     client = razorpay.Client(auth=('rzp_test_R5VKn5b737yagO', 'Gsk4JWvi4Cg4wxtgunYu4cBo'))
+    print(client)
 
     try:
         status = client.utility.verify_payment_signature(params_dict)
