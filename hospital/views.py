@@ -10,7 +10,9 @@ from datetime import datetime,timedelta,date
 from django.conf import settings
 from django.db.models import Q
 from .models import Survey, covidcase
-
+import razorpay
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseBadRequest
 # Create your views here.
 def home_view(request):
     if request.user.is_authenticated:
@@ -38,7 +40,8 @@ def patientclick_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'hospital/patientclick.html')
 
-
+def map(request):
+    return render(request,"hospital/map.html")
 
 
 def admin_signup_view(request):
@@ -459,6 +462,9 @@ def reject_patient_view(request,pk):
 
 
 
+
+
+
 #--------------------- FOR DISCHARGING PATIENT BY ADMIN START-------------------------
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -516,7 +522,8 @@ def discharge_patient_view(request,pk):
     return render(request,'hospital/patient_generate_bill.html',context=patientDict)
 
 
-
+def paynow(request):
+    return redirect('coffee-payment')
 #--------------for discharge patient bill (pdf) download and printing
 import io
 from xhtml2pdf import pisa

@@ -11,17 +11,19 @@ Youtube :youtube.com/lazycoders
 
 
 from django.contrib import admin
-from django.urls import path
-from hospital import views
+from django.urls import path,include
+from hospital import views 
 from django.contrib.auth.views import LoginView,LogoutView
-
+from src import views as v
 
 #-------------FOR ADMIN RELATED URLS
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home_view,name=''),
+    path('',views.home_view),
+    path('src/', include('src.urls')),
 
-
+    
+   
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
 
@@ -57,8 +59,9 @@ urlpatterns = [
 
     path('admin-covidcases',views.viewcovid,name='admin-covidcases'),
     path('coviddatewise',views.viewcoviddatewise,name='coviddatewise'),
+path('maps', views.map,name='map'),
 
-
+path('paynow',views.paynow,name='paynow'),
     path('admin-patient', views.admin_patient_view,name='admin-patient'),
     path('admin-view-patient', views.admin_view_patient_view,name='admin-view-patient'),
     path('delete-patient-from-hospital/<int:pk>', views.delete_patient_from_hospital_view,name='delete-patient-from-hospital'),

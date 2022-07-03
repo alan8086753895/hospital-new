@@ -1,12 +1,38 @@
 {% extends 'hospital/patient_base.html' %}
 {% load static %}
 {% block content %}
-
+{% load crispy_forms_tags %}
 <head>
   <meta charset="utf-8">
   <title>A simple, clean, and responsive HTML invoice template</title>
 
   <style>
+   
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(24, 9, 11);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
     .invoice-box {
       max-width: 800px;
       margin: auto;
@@ -114,13 +140,16 @@
 
 {%if is_discharged%}
 <div class="invoice-box">
+  
   <table cellpadding="0" cellspacing="0">
     <tr class="top">
       <td colspan="2">
         <table>
           <tr>
             <td class="title">
-              <h1>Hospital Management</h1>
+              <h1>Nursing Management</h1>
+              
+    </div>
             </td>
 
             <td>
@@ -223,7 +252,7 @@
       <td></td>
 
       <td>
-        Total Rupees : {{total}}
+        Total Rupees : {{total}}<br><a href="{% url 'paynow' %}">pay now</a>
       </td>
     </tr>
 
@@ -240,6 +269,7 @@
 <h5 style="text-align:center;">You Are Not Discharged By Hospital !</h5>
 <h5 style="text-align:center;">Your Treatment Is Going On !</h5><br><br>
 <h6 style="text-align:center;">When You Will Be Discahrged. You Can Download Invoice.</h6>
+
 {%endif%}
 
 <br><br><br><br><br><br><br><br>

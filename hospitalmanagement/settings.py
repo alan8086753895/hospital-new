@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
         'hospital',
         'widget_tweaks',
+        'src',
+        'crispy_forms',
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +131,12 @@ STATICFILES_DIRS=[STATIC_DIR,]
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
+GOOGLE_API_KEY = "AIzaSyBo95h8IMCTTIqccztDJF3LmLN7fRcassA"
+RECAPTCHA_KEY = "6LeBYbogAAAAAIoMd-7VaLc1SM0-TyXFSrX6GRun"
+RECAPTCHA_SECRET_KEY = "6LeBYbogAAAAADlY7zHeR1WTrsSz619rddHrkMxf"
+BASE_COUNTRY = "IN"
 
+GOOGLE_MAPS_API_KEY = "AIzaSyBo95h8IMCTTIqccztDJF3LmLN7fRcassA"
 
 LOGIN_REDIRECT_URL='/afterlogin'
 
@@ -145,3 +153,6 @@ EMAIL_HOST_PASSWORD = 'xyz' # host email password required
 # otherwise you will get SMTPAuthenticationError at /contactus
 # this process is required because google blocks apps authentication by default
 EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messages sent from website
+# RAZOR_KEY_ID = "rzp_test_R5VKn5b737yagO"
+# RAZOR_KEY_SECRET = "Gsk4JWvi4Cg4wxtgunYu4cBo"
+SECRET_KEY = 'Gsk4JWvi4Cg4wxtgunYu4cBo'
